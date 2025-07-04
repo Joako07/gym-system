@@ -1,0 +1,22 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: api-gym-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: gym_db
+    ports:
+      - "3306:3306" 
+    networks:
+      - microservices
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+networks:
+  microservices:
+    driver: bridge
+
+volumes:
+  mysql_data:
+

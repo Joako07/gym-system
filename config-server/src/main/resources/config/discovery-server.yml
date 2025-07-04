@@ -1,0 +1,16 @@
+server:
+  port: 8761
+  
+eureka:
+  instance:
+    hostname: localhost
+  client:
+   #Sirve para que el servidor Eureka sepa que tu microservicio está disponible 
+   #En este caso pongo false por que este es el servidor Eureka
+    registerWithEureka: false
+   #Descarga la lista de todos los servicios  registrados en el servidor Eureka
+   #Gracias a esto, tu microservicio puede descubrir a otros servicios 
+   #En este caso pongo false por que este es el servidor Eureka
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
