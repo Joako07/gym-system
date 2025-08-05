@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.joako.microservices.product_microservices.models.entities.CategoryEntity;
 import com.joako.microservices.product_microservices.models.mappers.CategoryMapper;
 import com.joako.microservices.product_microservices.models.requests.CategoryRequest;
 import com.joako.microservices.product_microservices.models.responses.CategoryResponse;
@@ -19,11 +20,12 @@ public class CategoryServices {
     private final CategoryMapper categoryMapper;
 
     public List<CategoryResponse> getAllCategories(){
-        return null;
+        return categoryRepository.findAll().stream().map(categoryMapper::entityToResponse).toList();
     }
 
     public Integer createCategory(CategoryRequest request){
-        return null;
+        CategoryEntity categoryEntity = categoryMapper.requestToEntity(request);
+        return categoryRepository.save(categoryEntity).getId();
     }
 
 }

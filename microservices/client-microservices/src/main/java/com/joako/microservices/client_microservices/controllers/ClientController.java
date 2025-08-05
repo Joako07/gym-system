@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/v1/client")
 @RequiredArgsConstructor
 public class ClientController {
 
