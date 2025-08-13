@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.joako.microservices.product_microservices.models.requests.CategoryRequest;
 import com.joako.microservices.product_microservices.models.responses.CategoryResponse;
-import com.joako.microservices.product_microservices.services.CategoryServices;
+import com.joako.microservices.product_microservices.services.CategoryService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequiredArgsConstructor
 public class CategoryController {
 
-    private final CategoryServices categoryServices;
+    private final CategoryService categoryServices;
 
     @GetMapping()
     public ResponseEntity<List<CategoryResponse>> getAllCategories() {

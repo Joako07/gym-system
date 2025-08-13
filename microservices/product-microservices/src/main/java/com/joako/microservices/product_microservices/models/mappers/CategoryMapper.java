@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import com.joako.microservices.product_microservices.models.entities.CategoryEntity;
 import com.joako.microservices.product_microservices.models.requests.CategoryRequest;
 import com.joako.microservices.product_microservices.models.responses.CategoryResponse;
+import com.joako.microservices.product_microservices.models.responses.ProductResponse;
 
 @Component
 public class CategoryMapper {
@@ -23,7 +24,19 @@ public class CategoryMapper {
                 categoryEntity.getId(),
                 categoryEntity.getName(),
                 categoryEntity.getDescription(),
-                categoryEntity.getProducts().stream().map(ProductMapper::entityToResponse).toList()
+                categoryEntity.getProducts().stream()
+                        .map(product -> new ProductResponse(
+                                product.getId(),
+                                product.getName(),
+                                product.getDescription(),
+                                product.getPrice(),
+                                product.getStock(),
+                                product.getImageUrl(),
+                                product.getCategory().getId(),
+                                product.getCategory().getName(),
+                                product.getCategory().getDescription(
+                        )))
+                        .toList()
             );
     }
 

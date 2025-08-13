@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class CategoryServices {
+public class CategoryService {
 
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
@@ -26,6 +26,10 @@ public class CategoryServices {
     }
 
     public CategoryResponse getCategoryById(Integer id) {
+          if (id == null) {
+            //Lanzar exception;
+            return null;
+        }
 
         return categoryRepository
                 .findById(id)
