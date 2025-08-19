@@ -31,6 +31,16 @@
             "projectName": "client-microservices",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProductMicroservicesApplication<product-microservices>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.joako.microservices.product_microservices.ProductMicroservicesApplication",
+            "projectName": "product-microservices",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
