@@ -1,4 +1,4 @@
-package com.joako.microservices.client_microservices.exceptions;
+package com.joako.microservices.product_microservices.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,13 +9,12 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @Builder
-public class ApiErrorException extends RuntimeException {
+public class NotFoundApiException extends RuntimeException{
 
-    private final String error; 
+    private final String error;
     private final String message;
 
-    public String getError(){
+    public String getError() {
         return error;
     }
-
 }
