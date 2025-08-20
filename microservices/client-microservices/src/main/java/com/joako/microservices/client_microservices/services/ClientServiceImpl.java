@@ -1,9 +1,5 @@
 package com.joako.microservices.client_microservices.services;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,10 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.joako.microservices.client_microservices.exceptions.ApiErrorException;
 import com.joako.microservices.client_microservices.exceptions.NotFoundApiException;
 import com.joako.microservices.client_microservices.models.dtos.ClientDto;
-import com.joako.microservices.client_microservices.models.entities.ClassEntity;
 import com.joako.microservices.client_microservices.models.entities.ClientEntity;
 import com.joako.microservices.client_microservices.models.mappers.ClientMapper;
-import com.joako.microservices.client_microservices.repositories.ClassRepository;
 import com.joako.microservices.client_microservices.repositories.ClientRepository;
 import com.joako.microservices.client_microservices.services.interfaces.ClientService;
 
@@ -32,28 +26,11 @@ public class ClientServiceImpl implements ClientService {
  
   private final ClientRepository clientRepository;
 
-  private final ClassRepository classRepository;
-
   // CREATE
   @Override
   @Transactional
   public ClientDto createClient(ClientDto clientDto) {
     ClientEntity clientEntity = ClientMapper.dtoToEntity(clientDto);
-
-    // Asegurarse de que las clases ya existen en la base de datos
-    Set<ClassEntity> managedClasses = new HashSet<>();
-    for (ClassEntity classEntity : clientEntity.getClasses()) {
-      Optional<ClassEntity> existingClass = classRepository.findById(classEntity.getId());
-      if (existingClass.isPresent()) {
-        managedClasses.add(existingClass.get()); // Agrega la entidad administrada
-      } else {
-        throw new RuntimeException("Clase con ID " + classEntity.getId() + " no encontrada");
-      }
-    }
-    clientEntity.setClasses(managedClasses);
-
-    // Asignar las clases gestionadas al cliente
-    clientEntity.setClasses(managedClasses);
 
     try {
       clientRepository.save(clientEntity);

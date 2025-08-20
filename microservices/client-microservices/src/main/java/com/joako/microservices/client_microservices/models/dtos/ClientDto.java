@@ -1,7 +1,5 @@
 package com.joako.microservices.client_microservices.models.dtos;
 
-import java.util.Set;
-
 import com.joako.microservices.client_microservices.models.enums.MembershipTypeEnum;
 
 import jakarta.validation.constraints.NotBlank;
@@ -34,5 +32,4 @@ public class ClientDto {
     @NotNull(message = "Debes eleguir una membresia")
     private MembershipTypeEnum type;
 
-    private Set<ClassDto> classes;
 }

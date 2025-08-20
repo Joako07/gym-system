@@ -27,11 +27,13 @@ public class ProductService {
     private final CategoryService categoryService;
     private final ProductMapper productMapper;
 
+    // GETALL
     @Transactional(readOnly = true)
     public List<ProductResponse> getAllProducts() {
         return productRepository.findAll().stream().map(productMapper::entityToResponse).toList();
     }
 
+    // GETONE
     @Transactional(readOnly = true)
     public ProductResponse getProductById(Integer id) {
         return productRepository.findById(id)
@@ -40,6 +42,7 @@ public class ProductService {
                         "No se encontro el producto con el Id " + id));
     }
 
+    // GETALLBYCATEGORY
     @Transactional(readOnly = true)
     public List<ProductResponse> getProductsByCategoryId(Integer id) {
 
@@ -53,6 +56,7 @@ public class ProductService {
                 .toList();
     }
 
+    // CREATE
     @Transactional
     public ProductResponse createProduct(ProductRequest request) {
 
@@ -76,6 +80,7 @@ public class ProductService {
         }
     }
 
+    // UPDATE
     @Transactional
     public ProductResponse updateProduct(Integer id, ProductRequest request) {
 
@@ -109,6 +114,7 @@ public class ProductService {
         }
     }
 
+    // DELETE
     @Transactional
     public void deleteProduct(Integer id) {
 
