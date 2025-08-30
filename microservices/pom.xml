@@ -17,6 +17,7 @@
     <modules>
         <module>client-microservices</module>
 		<module>product-microservices</module>
+		<module>class-microservices</module>
     </modules>
 	<url/>
 	<licenses>

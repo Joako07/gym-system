@@ -27,6 +27,22 @@ services:
       - mysql_product_data:/var/lib/mysql
     restart: always
 
+  postgre-class:
+    image: postgres
+    container_name: class-db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: class_db
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - microservices
+    restart: always
+
 networks:
   microservices:
     driver: bridge
@@ -34,4 +50,5 @@ networks:
 volumes:
   mysql_data:
   mysql_product_data:
+  postgres:
 
