@@ -41,6 +41,26 @@
             "projectName": "product-microservices",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ClassMicroervicesApplication<class-microervices>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.joako.microservices.class_microservices.ClassMicroervicesApplication",
+            "projectName": "class-microervices",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ClassMicroervicesApplication<class-microservices>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.joako.microservices.class_microservices.ClassMicroervicesApplication",
+            "projectName": "class-microservices",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
