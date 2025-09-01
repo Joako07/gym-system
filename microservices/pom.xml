@@ -19,6 +19,7 @@
 		<module>product-microservices</module>
 		<module>class-microservices</module>
 		<module>coach-microservices</module>
+		<module>auth-microservices</module>
     </modules>
 	<url/>
 	<licenses>

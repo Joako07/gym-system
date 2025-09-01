@@ -27,6 +27,20 @@ services:
       - mysql_product_data:/var/lib/mysql
     restart: always
 
+  mysql-auth:
+    image: mysql:8.0
+    container_name: auth-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: auth_db
+    ports:
+      - "3309:3306"  # cambia el puerto externo para evitar conflicto
+    networks:
+      - microservices
+    volumes:
+      - mysql_auth_data:/var/lib/mysql
+    restart: always
+
   postgre-class:
     image: postgres
     container_name: class-db
@@ -68,4 +82,5 @@ volumes:
   mysql_product_data:
   postgres:
   postgres_coach:
+  mysql_auth_data:
 
