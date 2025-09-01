@@ -43,6 +43,22 @@ services:
       - microservices
     restart: always
 
+  postgre-coach:
+    image: postgres
+    container_name: coach-db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: coach_db
+      PGDATA: /data/postgres
+    volumes:
+      - postgres_coach:/data/postgres
+    ports:
+      - "5434:5432"
+    networks:
+      - microservices
+    restart: always
+
 networks:
   microservices:
     driver: bridge
@@ -51,4 +67,5 @@ volumes:
   mysql_data:
   mysql_product_data:
   postgres:
+  postgres_coach:
 
