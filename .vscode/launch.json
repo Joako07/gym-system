@@ -61,6 +61,16 @@
             "projectName": "class-microservices",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CoachMicroservicesApplication<coach-microservices>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.joako.microservices.coach_microservices.CoachMicroservicesApplication",
+            "projectName": "coach-microservices",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
