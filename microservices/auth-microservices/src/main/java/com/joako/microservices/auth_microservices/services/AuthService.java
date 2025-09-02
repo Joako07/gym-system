@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.joako.microservices.auth_microservices.exceptions.BadRequestApiException;
 import com.joako.microservices.auth_microservices.jwt.JwtService;
 import com.joako.microservices.auth_microservices.models.requests.LoginRequest;
 import com.joako.microservices.auth_microservices.models.requests.RegisterRequest;
