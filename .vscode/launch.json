@@ -81,6 +81,16 @@
             "projectName": "auth-microservices",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-CartMicroservicesApplication<cart-microservices>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.joako.microservices.cart_microservices.CartMicroservicesApplication",
+            "projectName": "cart-microservices",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
