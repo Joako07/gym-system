@@ -20,6 +20,7 @@
 		<module>class-microservices</module>
 		<module>coach-microservices</module>
 		<module>auth-microservices</module>
+		<module>cart-microservices</module>
     </modules>
 	<url/>
 	<licenses>
